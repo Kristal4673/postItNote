@@ -1,21 +1,44 @@
+const { v4: uuidv4 } = require("uuid");
 //this calls in express.js
-const express = require('express')
-//automaticly does a random string 
-// import { v4 as uuidv4 } from "uuid";
-
-const db = require('../db/db.json')
-
-const router = express.Router()
+const express = require('express'); 
+const fs = require("fs"); 
+const path = require("path"); 
+const router = express.Router(); 
 
 //sends info to get route
 router.get('/', (req, res) => {
-    res.json(db)
+    let notes = fs.readFileSync(path.resolve(__dirname, "..db/db.json"));
+    res.json(JSON.parse(notes));
 })
 
-router.post('/create', function(req, res) {
-    const { title, text } = req.body
-    console.log(req.body)
+router.post("/", function (req, res) {
+  const { title, text } = req.body;
+  let newEntry = {
+    id: uuidv4(),
+    title: title,
+    text: text,
+  };
+  fs.readFile(path.resolve(__dirname, "../db/db.json"), function (err, data) {
+    var json = JSON.parse(data);
+    json.push(newEntry);
 
-    res.send(req.body)
-})
-module.exports = router
+    fs.writeFileSync(
+      path.resolve(__dirname, "../db/db.json"),
+      JSON.stringify(json)
+    );
+  });
+});
+
+router.delete("/:id", (req, res) => {
+  const id = req.params.id;
+  fs.readFile(path.resolve(__dirname, "../db/db.json"), function (err, data) {
+    var json = JSON.parse(data);
+    json = json.filter((item) => item.id != id);
+    fs.writeFileSync(
+      path.resolve(__dirname, "../db/db.json"),
+      JSON.stringify(json)
+    );
+  });
+});
+
+module.exports = router;

@@ -21,7 +21,7 @@ let allNotes = [];
 
 const getNotes = () => {
   hide(saveNoteBtn);
-  fetch("http://localhost:3004/api/notes", {
+  fetch("http://localhost:3011/api/notes", {
     method: "GET",
     headers: {
       "Content-Type": "application/json",
@@ -36,7 +36,7 @@ const getNotes = () => {
 
 const saveNote = async (note) => {
   console.log(note);
-  const response = fetch("http://localhost:3004/api/notes", {
+  const response = fetch("http://localhost:3011/api/notes", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -47,7 +47,7 @@ const saveNote = async (note) => {
 };
 
 const deleteNote = (id) =>
-  fetch(`http://localhost:3004/api/notes/${id}`, {
+  fetch(`http://localhost:3011/api/notes/${id}`, {
     method: "DELETE",
     headers: {
       "Content-Type": "application/json",

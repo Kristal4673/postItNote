@@ -7,7 +7,7 @@ const router = express.Router();
 
 //sends info to get route
 router.get('/', (req, res) => {
-    let notes = fs.readFileSync(path.resolve(__dirname, "..db/db.json"));
+    let notes = fs.readFileSync(path.resolve(__dirname, "../db/db.json"));
     res.json(JSON.parse(notes));
 })
 

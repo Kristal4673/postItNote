@@ -4,11 +4,9 @@ body {
   margin: 0;
   padding: 0;
 }
-input:focus, textarea:focus, select:focus {
-
-}
-.save-note {
-  display: none;
+input:focus,
+textarea:focus,
+select:focus {
 }
 
 .icons i {
@@ -17,9 +15,8 @@ input:focus, textarea:focus, select:focus {
   font-size: 1.5rem;
   cursor: pointer;
 }
-.text{
+.text {
   background-color: Pink !important;
-
 }
 
 .note-textarea,
@@ -32,7 +29,7 @@ input:focus, textarea:focus, select:focus {
 
 .note-textarea {
   resize: none;
-  height: 100px; 
+  height: 100px;
   padding-top: 15px;
 }
 
@@ -80,5 +77,16 @@ input:focus, textarea:focus, select:focus {
   border-left: none;
   border-right: none;
   padding: 20px;
+  transition: 0.3s ease-in;
+}
+
+.list-group-item:hover {
   cursor: pointer;
+  background-color: #d1d0d0;
+  transition: 0.3s ease-in;
+}
+
+.fa-trash-alt:hover {
+  cursor: pointer;
+  color: red;
 }

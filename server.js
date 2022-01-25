@@ -2,9 +2,9 @@ const express = require('express');
 const cors = require('cors');
 const apiRoutes = require('./routes/apiRoutes');
 
-//working off of port 3011
+//working off of port 3000
 const app = express();
-const PORT = 3011;
+const PORT = 3000;
 
 app.use(cors());
 

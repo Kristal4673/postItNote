@@ -1,13 +1,16 @@
 const express = require('express');
 const cors = require('cors');
+const fs = require("fs"); 
+const path = require("path");
+const database = require("./db/db");
 const apiRoutes = require('./routes/apiRoutes');
 
 //working off of port 3000
 const app = express();
-const PORT = 3000;
+const PORT = process.env.port || 3000;
 
 app.use(cors());
-
+app.use(express.static("public"));
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
@@ -15,4 +18,6 @@ app.use(express.urlencoded({ extended: false }));
 app.use('/api/notes', apiRoutes); 
 
 //app starts listening and its consoled logged 
-app.listen(PORT, () => console.log('app is listening'));
+app.listen(PORT, function () {
+    console.log('app is listening on PORT ' + PORT)
+});

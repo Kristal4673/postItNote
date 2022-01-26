@@ -9,7 +9,10 @@ const apiRoutes = require('./routes/apiRoutes');
 const app = express();
 const PORT = process.env.port || 3000;
 
+//import custom iddleware 
 app.use(cors());
+
+//deploying at local host 
 app.use(express.static("public"));
 
 app.use(express.json());

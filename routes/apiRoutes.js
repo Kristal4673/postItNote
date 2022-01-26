@@ -1,9 +1,9 @@
 const { v4: uuidv4 } = require("uuid");
 //this calls in express.js
-const express = require('express'); 
+const router = require("express").Router();
 const fs = require("fs"); 
 const path = require("path"); 
-const router = express.Router(); 
+
 
 //sends info to get route
 router.get('/', (req, res) => {

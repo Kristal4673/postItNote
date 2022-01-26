@@ -21,5 +21,5 @@ Then user will be shown existing notes listed  in the left side colum and empty 
 
 ## Functionality 
 
-To start program npm run start it should run off of port 3004. 
+To start program npm run start it should run off of port 3004no. 
 

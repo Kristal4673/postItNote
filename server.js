@@ -7,9 +7,9 @@ const apiRoutes = require('./routes/apiRoutes');
 
 //working off of port 3000
 const app = express();
-const PORT = process.env.port || 3000;
+const PORT = process.env.PORT || 3000;
 
-//import custom iddleware 
+//import custom middleware 
 app.use(cors());
 
 //deploying at local host 

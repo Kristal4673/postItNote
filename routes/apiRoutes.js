@@ -26,6 +26,8 @@ router.post("/notes", function (req, res) {
       JSON.stringify(json)
     );
   });
+  if(!newEntry) console.log("Entry NOT found! ") 
+  res.status(200).json(newEntry)
 });
 
 router.delete("/notes/:id", (req, res) => {

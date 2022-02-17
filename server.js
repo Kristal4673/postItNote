@@ -10,6 +10,7 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 
 //import custom middleware 
+//forces the origin to accept request 
 app.use(
   cors({
     origin: "https://postit-note.herokuapp.com/",

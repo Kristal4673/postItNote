@@ -1,17 +1,16 @@
 const { v4: uuidv4 } = require("uuid");
 //this calls in express.js
 const router = require("express").Router();
-const fs = require("fs"); 
-const path = require("path"); 
-
+const fs = require("fs");
+const path = require("path");
 
 //sends info to get route
-router.get('/', (req, res) => {
-    let notes = fs.readFileSync(path.resolve(__dirname, "../db/db.json"));
-    res.json(JSON.parse(notes));
-})
+router.get("/notes", (req, res) => {
+  let notes = fs.readFileSync(path.resolve(__dirname, "../db/db.json"));
+  res.json(JSON.parse(notes));
+});
 
-router.post("/", function (req, res) {
+router.post("/notes", function (req, res) {
   const { title, text } = req.body;
   let newEntry = {
     id: uuidv4(),
@@ -29,7 +28,7 @@ router.post("/", function (req, res) {
   });
 });
 
-router.delete("/:id", (req, res) => {
+router.delete("/notes/:id", (req, res) => {
   const id = req.params.id;
   fs.readFile(path.resolve(__dirname, "../db/db.json"), function (err, data) {
     var json = JSON.parse(data);

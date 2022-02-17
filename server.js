@@ -18,7 +18,7 @@ app.use(express.static("public"));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 //use js api routes 
-app.use('/api/notes', apiRoutes); 
+app.use('/api', apiRoutes); 
 
 //app starts listening and its consoled logged 
 app.listen(PORT, function () {

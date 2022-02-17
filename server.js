@@ -10,7 +10,11 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 
 //import custom middleware 
-app.use(cors());
+app.use(
+  cors({
+    origin: "https://postit-note.herokuapp.com/",
+  })
+);
 
 //deploying at local host 
 app.use(express.static("public"));
